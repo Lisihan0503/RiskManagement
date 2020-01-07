@@ -1,0 +1,303 @@
+/*
+* @name：样式重置
+* @author：陈成 2019-12-17
+* @description：说明
+* @required：注明 overwrite 的是可以覆的，没注明的是必须的；与其他组件的依赖关系，一般为null
+*/
+/* 防止用户自定义背景颜色对网页的影响，添加让用户可以自定义字体 */
+/*html{	color:#000;background:#fff;	-webkit-text-size-adjust: 100%;  -ms-text-size-adjust: 100%;}*/
+/* 内外边距通常让各个浏览器样式的表现位置不同 */
+body, div, dl, dt, dd, ul, ol, li,
+h1, h2, h3, h4, h5, h6, pre, code,
+form, fieldset, legend, input, textarea,
+p, blockquote, th, td, hr, button, article,
+aside, details, figcaption, figure, footer,
+header, hgroup, menu, nav, section {
+  margin: 0;
+  padding: 0;
+}
+#app{
+  overflow-x: hidden;
+}
+/* 重设 HTML5 标签, IE 需要在 js 中 createElement(TAG) */
+article, aside, details, figcaption,
+figure, footer, header, hgroup, menu,
+nav, section {
+  display: block;
+}
+
+/* HTML5 媒体文件跟 img 保持一致 */
+audio, canvas, video {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+}
+
+/* 要注意表单元素并不继承父级 font 的问题 */
+body, button, input,
+select, textarea {
+  font: 12px/1.5 tahoma, arial, \5b8b\4f53;
+}
+
+input, select, textarea {
+  font-size: 100%;
+}
+
+/* 去掉各Table  cell 的边距并让其边重合 */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* IE bug fixed: th 不继承 text-align*/
+th {
+  text-align: inherit;
+}
+
+/* 去除默认边框 */
+fieldset, img {
+  border: 0;
+}
+
+/* ie6 7 8(q) bug 显示为行内表现 */
+iframe {
+  display: block;
+}
+
+/* 去掉 firefox 下此元素的边框 */
+abbr, acronym {
+  border: 0;
+  font-variant: normal;
+}
+
+/* 一致的 del 样式 */
+del {
+  text-decoration: line-through;
+}
+
+address, caption, cite,
+code, dfn, em, th, var {
+  font-style: normal;
+  font-weight: 500;
+}
+
+/* 去掉列表前的标识, li 会继承 */
+ol, ul {
+  list-style: none;
+}
+
+/* 对齐是排版最重要的因素, 别让什么都居中 */
+caption, th {
+  text-align: left;
+}
+
+/* 来自yahoo, 让标题都自定义, 适应多个系统应用 */
+h1, h2, h3, h4, h5, h6 {
+  font-size: 100%;
+  font-weight: 500;
+}
+
+q:before, q:after {
+  content: '';
+}
+
+/* 统一上标和下标 */
+sub, sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sup {
+  top: -0.5em;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+/* 让链接在 hover 状态下显示下划线 */
+a:hover {
+  text-decoration: underline;
+}
+
+/* 默认不显示下划线，保持页面简洁 */
+ins, a, span {
+  text-decoration: none;
+}
+
+/* 清理浮动 */
+.fn-clear:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0;
+}
+
+.fn-clear {
+  zoom: 1; /* for IE6 IE7 */
+}
+
+/* 设置内联, 减少浮动带来的bug */
+/*.fn-left,.fn-right {	display:inline;}*/
+.fn-left {
+  float: left;
+}
+
+.fn-right {
+  float: right;
+}
+
+.el-dialog__body {
+  padding: 0 !important;
+}
+
+.el-table__expanded-cell {
+  padding: 0 !important;
+}
+
+.el-table__header {
+  width: 100% !important;
+}
+
+
+a {
+  text-decoration: none !important;
+}
+
+/* 重置浏览器右侧滚动条样式 */
+body {
+  background: #ffffff;
+  width: 100%;
+  height: 100%;
+  scrollbar-arrow-color: #CBCBCB; /*上下按钮上三角箭头的颜色*/
+  scrollbar-face-color: #CBCBCB; /*滚动条凸出部分的颜色*/
+  scrollbar-3dlight-color: blue; /*滚动条亮边的颜色*/
+  scrollbar-highlight-color: #333; /*滚动条空白部分的颜色*/
+  scrollbar-shadow-color: white; /*滚动条阴影的颜色*/
+  scrollbar-darkshadow-color: green; /*滚动条强阴影的颜色*/
+  scrollbar-track-color: #eee; /*滚动条背景颜色*/
+  scrollbar-base-color: white; /*滚动条的基本颜色*/
+  font-family: "微软雅黑";
+  font-weight: 100;
+  /*以上2项适用与：body、div、textarea、iframe*/
+}
+
+::-webkit-scrollbar { /* 滚动条整体部分 */
+  width: 10px;
+  margin-right: 2px
+}
+
+::-webkit-scrollbar-button { /* 滚动条两端的按钮 */
+  width: 10px;
+  background-color: white;
+}
+
+::-webkit-scrollbar:horizontal {
+  height: 10px;
+  margin-bottom: 2px
+}
+
+::-webkit-scrollbar-track { /* 外层轨道 */
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-track-piece { /*内层轨道，滚动条中间部分 */
+  background-color: white;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb { /* 滑块 */
+  width: 10px;
+  border-radius: 5px;
+  background: #CBCBCB;
+}
+
+::-webkit-scrollbar-corner { /* 边角 */
+  width: 10px;
+  background-color: white;
+}
+
+::-webkit-scrollbar-thumb:hover { /* 鼠标移入滑块 */
+  background: #909090;
+}
+input::-webkit-input-placeholder {
+  color: #CCCCCC;
+  padding: 5px!important;
+  margin: 0!important;
+  font-size: 14px;
+}
+input::-webkit-input-placeholder{
+  color:#cccccc;
+}
+input::-moz-placeholder{   /* Mozilla Firefox 19+ */
+  color:#cccccc;
+}
+input:-moz-placeholder{    /* Mozilla Firefox 4 to 18 */
+  color:#cccccc;
+}
+input:-ms-input-placeholder{  /* Internet Explorer 10-11 */
+  color:#cccccc;
+}
+.ellipsis{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+
+/*
+
+头部样式相关
+
+*/
+.Header {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.title {
+  width: 100%;
+  height: 73px;
+  background-color: #535262;
+}
+
+.logo {
+  float: left;
+}
+
+/*-- Logo样式相关 --*/
+.logo img {
+  margin: 12px 0 0 21px;
+  float: left;
+}
+
+.logo span {
+  color: #fff;
+  font-size: 27px;
+  display: inline-block;
+  padding-top: 26px;
+  letter-spacing:2px;
+}
+
+/*-- 用户样式相关 --*/
+.user {
+  float: right;
+  line-height: 55px;
+  margin-right: 10px;
+}
+
+.user img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.user span {
+  color: #fff;
+  padding-right: 10px;
+}

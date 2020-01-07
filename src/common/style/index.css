@@ -1,0 +1,71 @@
+body, html {
+  width: 100%;
+  background: 0 0 url("../../assets/LogInBackground.jpg") no-repeat;
+}
+
+.logo img {
+  margin: 10px 0 0 20px;
+}
+
+.logInBox {
+  width: 420px;
+  height: 360px;
+  background-color: rgb(250,250,250);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(0, -60%);
+  text-align: center;
+}
+
+.passWordBox {
+  width: 320px;
+  margin: 0 0 20px 50px;
+  text-align: left;
+  line-height: 13px;
+  text-indent: 5px;
+  color: #fff;
+}
+
+.passWordBox input {
+  float: left;
+}
+
+.passWordBox a {
+  color: #fff;
+  float: right;
+}
+
+.passWordBox a:hover{
+  text-decoration: underline;
+}
+
+.logInBox .Assessment {
+  display: inline-block;
+  font-size: 30px;
+  color: #fff;
+  padding: 35px 0;
+}
+
+.logInBox input[type='text'] {
+  width: 310px;
+  height: 45px;
+  border-style: none;
+  border-radius: 6px;
+  padding-left: 10px;
+  margin-bottom: 20px;
+}
+
+.logInBox button {
+  background-color: #fec808;
+  width: 320px;
+  height: 45px;
+  border-radius: 6px;
+  border-style: none;
+  color: #fff;
+  cursor: pointer;
+}
+
+.logInBox button:hover {
+  background-color: rgba(250, 206, 47);
+}

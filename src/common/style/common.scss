@@ -1,0 +1,37 @@
+/*
+* @name：样式重置
+* @author：陈成 2019-12-17
+* @description：说明
+* @required：注明 公共颜色以及 字体大小变量
+* 使用方法 在每个Vue页面引入 @import "../../common/style/common.scss";
+* 例如：div{color:$color-000}
+*/
+
+//颜色 Color
+$color000: #000000;
+$color070: #707070;
+$color333: #333333;
+$color666: #666666;
+$color999: #999999;
+$headerBgColor: #535262;
+$navBgColor: #381803;
+$white: #ffffff;
+$navHoverBg: #bf7709;
+$navA0a0a0: #a0a0a0;
+
+
+//字体大小 FontSize
+$fontsize12: 12px;
+$fontsize13: 13px;
+$fontsize14: 14px;
+$fontsize16: 16px;
+$fontsize18: 18px;
+$fontsize20: 20px;
+$fontsize22: 22px;
+$fontsize24: 24px;
+
+//字体粗细 FontWeight
+$fontweight600:600;
+$fontweight500:500;
+$fontweight400:400;
+$fontweight300:300;

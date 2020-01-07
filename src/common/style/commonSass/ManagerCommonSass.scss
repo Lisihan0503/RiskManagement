@@ -1,0 +1,54 @@
+@import "../../../common/style/common.scss";
+
+.ui_organization_title, .ui_search_result {
+  line-height: 46px;
+  height: 46px;
+  background: #fafafa;
+  font-size: 18px;
+  font-weight: 500;
+
+  span {
+    width: 12px;
+    height: 27px;
+    display: inline-block;
+    background: $navHoverBg;
+    margin-left: 24px;
+    position: relative;
+    top: 6px;
+    margin-right: 8px;
+  }
+}
+
+.ui_search_result {
+  background: white;
+}
+
+.ui_organization_condition {
+  min-height: 65px;
+  border-bottom: 1px solid #f4f4f4;
+}
+
+.ui_table_box {
+  margin: 0 40px;
+  margin-top: 4px;
+}
+
+.ui_pagination_box {
+  text-align: right;
+  margin-right: 40px;
+  margin-top: 10px;
+}
+
+.ui_search_right {
+  float: right;
+  margin-right: 40px;
+
+  li {
+    float: left;
+    margin-right: 12px;
+  }
+
+  li:last-child {
+    margin-right: 0;
+  }
+}
