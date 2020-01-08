@@ -1,3 +1,4 @@
+
 <template>
   <div class="ui_management_evaluation_plan">
     <!-- 管理培训 -->
@@ -245,7 +246,7 @@
        * @Author XXX
        * */
       addQuestions() {
-
+        this.$goRoute('/addQuestions')
       },
       /**
        *  创建培训

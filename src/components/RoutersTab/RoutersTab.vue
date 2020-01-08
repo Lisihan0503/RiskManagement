@@ -16,8 +16,9 @@
     </el-row>
   </div>
 </template>
-<script>
 
+
+<script>
   export default {
     name: '',
     props: ['changeBgColor2', 'changeBgColor3', 'changeBgColor4', 'changeBgColor5'],
@@ -131,13 +132,6 @@
             path: 'ManagementTraining',
             activeBgChild:'',
             activeBgColor: '',
-            children: [{
-              name: '上传资源',
-              active: false,
-              path: 'UploadResources',
-              activeBgChild:'',
-              activeBgColor: '',
-            }]
           },{
             name: '用户培训汇总',
             active: false,

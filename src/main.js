@@ -11,20 +11,21 @@ import 'element-ui/lib/theme-chalk/index.css';
 import '@/common/style/reset.css'
 import '@/common/style/resetElemtnUI.css'
 import animated from 'animate.css' // npm install animate.css --save安装，再引入
-Vue.config.productionTip = false
-Vue.use(ElementUI)
-Vue.use(animated)
+
+Vue.config.productionTip = false;
+Vue.use(ElementUI);
+Vue.use(animated);
 // 路由跳转
 Vue.prototype.$goRoute = function (index, query) {
   this.$router.push({
     path: index,
     query: query
   })
-}
+};
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
   router,
-  components: { App },
+  components: {App},
   template: '<App/>'
-})
+});

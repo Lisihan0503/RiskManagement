@@ -1,59 +1,61 @@
-import Vue from 'vue'
-import Router from 'vue-router'
+import Vue from 'vue';
+import Router from 'vue-router';
 // 首页
-import Home from '@/views/Home/Home'
+import Home from '@/views/Home/Home';
 //index页面
-import Index from '@/views/Index/Index'
+import Index from '@/views/Index/Index';
 //用户管理
-import UserManagement from '@/views/UserManagement/UserManagement'
+import UserManagement from '@/views/UserManagement/UserManagement';
 //评估单元映射
-import EvaluationUnitMapping from '@/views/EvaluationUnitMapping/EvaluationUnitMapping'
+import EvaluationUnitMapping from '@/views/EvaluationUnitMapping/EvaluationUnitMapping';
 //评估计划
-import EvaluationPlan from '@/views/EvaluationPlan/EvaluationPlan'
+import EvaluationPlan from '@/views/EvaluationPlan/EvaluationPlan';
 //风险评估
-import RiskAssessment from '@/views/RiskAssessment/RiskAssessment'
+import RiskAssessment from '@/views/RiskAssessment/RiskAssessment';
 //查看子问卷
-import SeeVolume from '@/views/RiskAssessment/SeeVolume'
+import SeeVolume from '@/views/RiskAssessment/SeeVolume';
 //分发问卷
-import DistributeQuestionnaire from '@/views/DistributeQuestionnaire/DistributeQuestionnaire'
+import DistributeQuestionnaire from '@/views/DistributeQuestionnaire/DistributeQuestionnaire';
 //风险报表
-import RiskStatement from '@/views/RiskStatement/RiskStatement'
+import RiskStatement from '@/views/RiskStatement/RiskStatement';
 //管理机构
-import ManagementOrganization from '@/views/ManagementOrganization/ManagementOrganization'
+import ManagementOrganization from '@/views/ManagementOrganization/ManagementOrganization';
 //管理评估计划
-import ManagementEvaluationPlan from '@/views/ManagementEvaluationPlan/ManagementEvaluationPlan'
+import ManagementEvaluationPlan from '@/views/ManagementEvaluationPlan/ManagementEvaluationPlan';
 //管理汇总路线
-import ManageSummaryRoutes from '@/views/ManageSummaryRoutes/ManageSummaryRoutes'
+import ManageSummaryRoutes from '@/views/ManageSummaryRoutes/ManageSummaryRoutes';
 //自定义权重
-import CustomWeight from '@/views/CustomWeight/CustomWeight'
+import CustomWeight from '@/views/CustomWeight/CustomWeight';
 //汇总因子权重
-import AggregationFactorWeight from '@/views/AggregationFactorWeight/AggregationFactorWeight'
+import AggregationFactorWeight from '@/views/AggregationFactorWeight/AggregationFactorWeight';
 //评级结构
-import RatingStructure from '@/views/RatingStructure/RatingStructure'
+import RatingStructure from '@/views/RatingStructure/RatingStructure';
 //关联问题
-import RelevanceProblem from '@/views/RelevanceProblem/RelevanceProblem'
+import RelevanceProblem from '@/views/RelevanceProblem/RelevanceProblem';
 //固有风险指标
-import InherentRiskIndicators from '@/views/InherentRiskIndicators/InherentRiskIndicators'
+import InherentRiskIndicators from '@/views/InherentRiskIndicators/InherentRiskIndicators';
 //管理问题
-import ManagementProblem from '@/views/ManagementProblem/ManagementProblem'
+import ManagementProblem from '@/views/ManagementProblem/ManagementProblem';
 //管理培训
-import ManagementTraining from '@/views/ManagementTraining/ManagementTraining'
+import ManagementTraining from '@/views/ManagementTraining/ManagementTraining';
 //创建培训
-import TrainingModify from '@/views/ManagementTraining/TrainingModify'
+import TrainingModify from '@/views/ManagementTraining/TrainingModify';
 //创建考题
-import QuestionsModify from '@/views/ManagementTraining/QuestionsModify'
+import QuestionsModify from '@/views/ManagementTraining/QuestionsModify';
 //选择用户，受邀用户
-import SelectUsers from '@/views/ManagementTraining/SelectUsers'
+import SelectUsers from '@/views/ManagementTraining/SelectUsers';
 //选择考题
-import SelectQuestions from '@/views/ManagementTraining/SelectQuestions'
+import SelectQuestions from '@/views/ManagementTraining/SelectQuestions';
 //查看完成情况
-import SeeSituation from '@/views/ManagementTraining/SeeSituation'
+import SeeSituation from '@/views/ManagementTraining/SeeSituation';
 //用户培训汇总
-import UserTraining from '@/views/UserTraining/UserTraining'
+import UserTraining from '@/views/UserTraining/UserTraining';
 //培训主题名称
-import TrainingName from '@/views/UserTraining/TrainingName'
+import TrainingName from '@/views/UserTraining/TrainingName';
 //下载资源
-import UploadResources  from '@/view/ManagementTraining/UploadResources'
+import UploadResources  from '@/views/ManagementTraining/UploadResources';
+//创建考题
+import addQuestions  from '@/views/ManagementTraining/addQuestions';
 
 Vue.use(Router);
 
@@ -202,6 +204,11 @@ const router = new Router({
           path: '/UploadResources',
           name: 'UploadResources',
           component: UploadResources
+        },
+        {
+          path: '/addQuestions',
+          name: 'addQuestions',
+          component: addQuestions
         }
       ]
     },

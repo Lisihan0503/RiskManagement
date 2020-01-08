@@ -167,7 +167,7 @@
 
     },
     mounted () {
-      document.getElementById('bg_color').style.display = 'none'
+      document.getElementById('bg_color').style.display = 'none';
     },
     methods: {
       handleSizeChange(val) {

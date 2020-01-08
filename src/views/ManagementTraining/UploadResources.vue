@@ -3,83 +3,23 @@
     <div class="ui_search_result">
       <el-row style="background: #fafafa;margin-top: 50px;">
         <el-col :span="24">
-          <span></span>用户培训汇总
+          <span></span>上传资源
         </el-col>
       </el-row>
     </div>
-    <!-- 表格 -->
-    <div class="ui_table_box">
-      <el-table
-        :data="tableData"
-        :header-cell-style="{background:'#f5f6f8',height:'45px'}"
-        stripe
-        style="width: 100%">
-        <el-table-column
-          fixed
-          prop="theme"
-          :show-overflow-tooltip='true'
-          label="培训主题"
-          width="430">
-        </el-table-column>
-        <el-table-column
-          prop="stopTime"
-          :show-overflow-tooltip='true'
-          label="截至时间"
-          width="210">
-        </el-table-column>
-        <el-table-column
-          prop="compelTraining"
-          :show-overflow-tooltip='true'
-          label="是否强制培训"
-          width="210">
-        </el-table-column>
-        <el-table-column
-          prop="compelPass"
-          :show-overflow-tooltip='true'
-          label="是否强制通过考试"
-          width="210">
-        </el-table-column>
-        <el-table-column
-          prop="compelCpltTraining"
-          :show-overflow-tooltip='true'
-          label="是否完成培训"
-          width="210">
-        </el-table-column>
-        <el-table-column
-          prop="compelPass"
-          :show-overflow-tooltip='true'
-          label="是否通过考试"
-          width="210">
-        </el-table-column>
-        <el-table-column
-          prop="operate"
-          label="操作"
-          :show-overflow-tooltip='true'
-          width="360">
-          <template slot-scope="scope">
-            <ul class="ui_li_list">
-              <li><a @click="ParticipateTrainingClick">参加培训</a></li>
-              <li><a>参加考试</a></li>
-            </ul>
-          </template>
-        </el-table-column>
-      </el-table>
-    </div>
-    <!-- 分页 -->
-    <div class="ui_pagination_box">
-      <div class="fn-left ui_total_num">
-        本页10条目，共计40条目
-      </div>
-      <el-pagination
-        class="fn-left"
-        @size-change="handleSizeChange"
-        @current-change="handleCurrentChange"
-        :current-page.sync="currentPage3"
-        :page-size="100"
-        layout="prev, pager, next, jumper"
-        :total="1000">
-      </el-pagination>
-    </div>
+    <el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="100px" class="demo-ruleForm">
+      <el-form-item label="上传类型" prop="region">
+        <el-select v-model="ruleForm.region" placeholder="请选择" @change="ChooseResources(selected)">
+          <el-option
+            v-for="item in changeRes"
+            :key="item.value"
+            :label="item.label"
+            :value="item.value"
+            class="optionColor">
+          </el-option>
+        </el-select>
+      </el-form-item>
+    </el-form>
   </div>
 </template>
 
@@ -88,79 +28,37 @@
     name: "UploadResources",
     data() {
       return {
-        tableData: [{
-          theme: '培训主题XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX',
-          stopTime: '2019-12-12',
-          compelTraining: '是',
-          compelPass: '是',
-          compelCpltTraining: '否',
-          compelPass: '否'
+        ruleForm: {
+          name: '',
+          region: '',
+          date1: '',
+          date2: '',
+          delivery: false,
+          type: [],
+          resource: '',
+          desc: ''
+        },
+        rules: {
+          region: [
+            {required: true, message: '请选择上传区域', trigger: 'change'}
+          ]
+        },
+        /**
+         *  点击option改变页面元素方法
+         * @param
+         * @returns {Promise}
+         * @Author 李思晗
+         * */
+        changeRes: [{
+          value: 'Video',
+          label: '视频资源'
         }, {
-          theme: '培训主题XXXXXXX',
-          stopTime: '2019-12-12',
-          compelTraining: '是',
-          compelPass: '是',
-          compelCpltTraining: '否',
-          compelPass: '否'
-        }, {
-          theme: '培训主题XXXXXXX',
-          stopTime: '2019-12-12',
-          compelTraining: '是',
-          compelPass: '是',
-          compelCpltTraining: '否',
-          compelPass: '否'
-        }, {
-          theme: '培训主题XXXXXXX',
-          stopTime: '2019-12-12',
-          compelTraining: '是',
-          compelPass: '是',
-          compelCpltTraining: '否',
-          compelPass: '否'
-        }, {
-          theme: '培训主题XXXXXXX',
-          stopTime: '2019-12-12',
-          compelTraining: '是',
-          compelPass: '是',
-          compelCpltTraining: '否',
-          compelPass: '否'
-        }, {
-          theme: '培训主题XXXXXXX',
-          stopTime: '2019-12-12',
-          compelTraining: '是',
-          compelPass: '是',
-          compelCpltTraining: '否',
-          compelPass: '否'
-        }, {
-          theme: '培训主题XXXXXXX',
-          stopTime: '2019-12-12',
-          compelTraining: '是',
-          compelPass: '是',
-          compelCpltTraining: '否',
-          compelPass: '否'
-        }, {
-          theme: '培训主题XXXXXXX',
-          stopTime: '2019-12-12',
-          compelTraining: '是',
-          compelPass: '是',
-          compelCpltTraining: '否',
-          compelPass: '否'
-        }, {
-          theme: '培训主题XXXXXXX',
-          stopTime: '2019-12-12',
-          compelTraining: '是',
-          compelPass: '是',
-          compelCpltTraining: '否',
-          compelPass: '否'
-        }, {
-          theme: '培训主题XXXXXXX',
-          stopTime: '2019-12-12',
-          compelTraining: '是',
-          compelPass: '是',
-          compelCpltTraining: '否',
-          compelPass: '否'
+          value: 'NonVideo',
+          label: '非视频资源'
         }]
       }
     },
+
     mounted() {
       this.initPage()
     },
@@ -173,12 +71,64 @@
        * */
       initPage() {
 
+      },
+      /**
+       *  表单方法
+       * @param
+       * @returns {Promise}
+       * @Author 李思晗
+       * */
+      submitForm(formName) {
+        this.$refs[formName].validate((valid) => {
+          if (valid) {
+            alert('submit!');
+          } else {
+            console.log('error submit!!');
+            return false;
+          }
+        });
+      },
+      resetForm(formName) {
+        this.$refs[formName].resetFields();
+      },
+      /**
+       * 视频资源
+       * @param
+       * @returns {Promise}
+       * @Author 李思晗
+       * */
+      ChooseResources(index) {
+        console.log(index);
+        console.log(this.changeRes[index].value);
       }
     }
-  }
+  };
+
+
 </script>
 
-<style scoped>
 
+<style lang="scss" scoped type="text/scss">
+  @import "../../common/style/commonSass/ManagerCommonSass";
+  @import "../../common/style/common.scss";
+  @import "../../common/style/resetElemtnUI.css";
+
+  .el-form-item {
+    display: inline-block;
+    max-width: 800px;
+    margin: 15px 0 15px 15%;
+
+    .el-select {
+      width: 300px;
+    }
+
+    .el-select:focus {
+      border-color: $navHoverBg;
+    }
+  }
+
+  .optionColor {
+    color: $navHoverBg;
+  }
 
 </style>

@@ -35,7 +35,7 @@ export default {
       }).catch(error => {
         if (error.response.status != 200) {
           if (error.response.data == 50000) {
-            reject(error.response.data)
+            reject(error.response.data);
             router.push({
               path: '/'
             })
