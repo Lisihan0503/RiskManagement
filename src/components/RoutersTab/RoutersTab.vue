@@ -215,13 +215,12 @@
             name: '单元排序',
             active: false,
             path: '',
-            path: 'ManagementTraining',
             activeBgChild:'',
             activeBgColor: '',
           }, {
             name: '评级结构',
             active: false,
-            path: 'UserTraining',
+            path: '',
             activeBgChild:'',
             activeBgColor: '',
           }]

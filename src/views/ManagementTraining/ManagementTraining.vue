@@ -246,7 +246,7 @@
        * @Author XXX
        * */
       addQuestions() {
-        this.$goRoute('/addQuestions')
+        this.$goRoute('/QuestionsModify')
       },
       /**
        *  创建培训
@@ -335,22 +335,7 @@
 
   }
 
-  .ui_li_list {
-    li {
-      display: inline-block;
-      text-align: center;
-      margin-left: 10px;
-    }
 
-    li:hover {
-      color: $navHoverBg;
-      cursor: pointer;
-
-      a {
-        border-bottom: 1px solid $navHoverBg;
-      }
-    }
-  }
 
   .ui_btn {
     cursor: pointer;
@@ -397,6 +382,23 @@
     width: 72px;
     height: 30px;
     line-height: 30px;
+  }
+
+    .ui_li_list {
+      li {
+        display: inline-block;
+        text-align: center;
+        margin-left: 10px;
+      }
+
+      li:hover {
+        color: $navHoverBg;
+        cursor: pointer;
+
+        a {
+          border-bottom: 1px solid $navHoverBg;
+        }
+      }
   }
 
 </style>

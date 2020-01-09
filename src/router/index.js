@@ -54,8 +54,6 @@ import UserTraining from '@/views/UserTraining/UserTraining';
 import TrainingName from '@/views/UserTraining/TrainingName';
 //下载资源
 import UploadResources  from '@/views/ManagementTraining/UploadResources';
-//创建考题
-import addQuestions  from '@/views/ManagementTraining/addQuestions';
 
 Vue.use(Router);
 
@@ -204,11 +202,6 @@ const router = new Router({
           path: '/UploadResources',
           name: 'UploadResources',
           component: UploadResources
-        },
-        {
-          path: '/addQuestions',
-          name: 'addQuestions',
-          component: addQuestions
         }
       ]
     },

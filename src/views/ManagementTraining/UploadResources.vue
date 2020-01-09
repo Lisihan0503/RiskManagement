@@ -113,19 +113,23 @@
   @import "../../common/style/common.scss";
   @import "../../common/style/resetElemtnUI.css";
 
-  .el-form-item {
-    display: inline-block;
-    max-width: 800px;
-    margin: 15px 0 15px 15%;
+  .el-form{
+    .el-form-item {
+      display: inline-block;
+      max-width: 800px;
+      margin: 15px 0 15px 12%;
 
-    .el-select {
-      width: 300px;
-    }
+      .el-select {
+        width: 300px;
+      }
 
-    .el-select:focus {
-      border-color: $navHoverBg;
+      .el-select:focus {
+        border-color: $navHoverBg;
+      }
     }
   }
+
+
 
   .optionColor {
     color: $navHoverBg;
