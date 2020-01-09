@@ -41,7 +41,7 @@
     name: "TrainingModify",
     data() {
       return {
-        // title: '123',
+        title: '',
         ruleForm: {
           TraTheme: '',
           region: '',
@@ -57,6 +57,9 @@
             {required: true, message: '请输入活动名称', trigger: 'blur'}
           ],
           region: [
+            {required: true, message: '请选择活动区域', trigger: 'change'}
+          ],
+          CompulsoryTraining: [
             {required: true, message: '请选择活动区域', trigger: 'change'}
           ]
         }
@@ -125,21 +128,18 @@
 
 
   .el-form {
-    width: 45%;
+    width: 65%;
     padding: 15px 12%;
 
     .el-form-item {
-
+      margin-bottom: 10px;
       .el-radio-group {
         width: 120px;
-
-
       }
 
       .el-input {
-        width: 590px;
+        width: 960px;
         margin-right: 115px;
-        float: right;
       }
 
       .el-form-item__content {

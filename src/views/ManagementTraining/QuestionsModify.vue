@@ -46,10 +46,16 @@
           </el-radio-group>
           <el-input v-model="ruleForm.name"></el-input>
         </el-form-item>
-        <el-form-item prop="">
+        <el-form-item>
           <div class="el-form-item__content" style="margin-left: 60px;">
-            <lable class="el-form-item__label"><i class="el-icon-circle-plus-outline"></i><span>新增选项</span></lable>
-            <lable class="el-form-item__label"><i class="el-icon-remove-outline"></i><span>删除选项</span></lable>
+            <span class="el-form-item__label AddOption">
+              <i class="el-icon-circle-plus-outline"></i>
+              <span>新增选项</span>
+            </span>
+            <span class="el-form-item__label deleteOption">
+              <i class="el-icon-remove-outline"></i>
+              <span>删除选项</span>
+            </span>
           </div>
         </el-form-item>
       </div>
@@ -66,10 +72,16 @@
       <el-form-item label="设置分值" prop="Score">
         <el-input v-model="ruleForm.name" style="width: 650px;"></el-input>
       </el-form-item>
-      <div class="fn-right">
-        <div class="fn-left ui_btn" >确认</div>
-        <div class="fn-left ui_btn" >返回</div>
-      </div>
+
+      <el-form-item>
+        <div class="el-textarea">
+          <div class="fn-right">
+            <div class="fn-left ui_btn" >确认</div>
+            <div class="fn-left ui_btn" >返回</div>
+          </div>
+        </div>
+      </el-form-item>
+
     </el-form>
   </div>
 </template>
@@ -171,11 +183,9 @@
     padding: 15px 12%;
 
     .el-form-item{
-
+      margin-bottom: 10px;
       .el-radio-group{
         width: 40px;
-        .el-radio{
-        }
 
       }
 
@@ -186,6 +196,7 @@
       }
 
       .el-form-item__content{
+
         .el-form-item__error {
           padding: 6px 0 0 45px;
         }
@@ -200,19 +211,24 @@
         font-weight: 600;
         color: #a0a0a0;
         margin: 0 5px;
+      }
 
+      .el-textarea {
+        width: 960px;
       }
 
     }
 
     .JudgementQueContent {
+
       .el-radio-group{
         width: 120px;
       }
+
     }
 
     span{
-      line-height: 30px;
+      line-height: 35px;
     }
 
   }
