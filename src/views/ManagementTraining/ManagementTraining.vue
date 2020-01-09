@@ -53,6 +53,7 @@
           type="selection"
           width="60"
         hight="45px">
+          
         </el-table-column>
         <el-table-column
           prop="trainingTheme"
