@@ -137,7 +137,7 @@
               activeBgChild: '',
               activeBgColor: '',
             }, {
-              name: '用户培训汇总',
+              name: '培训汇总',
               active: false,
               path: 'UserTraining',
               activeBgChild: '',

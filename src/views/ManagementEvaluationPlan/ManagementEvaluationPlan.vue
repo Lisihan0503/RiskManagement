@@ -2,20 +2,20 @@
   <div class="ui_management_evaluation_plan">
     <!--    管理评估计划-->
     <div class="ui_search_result">
-      <el-row style="background: #fafafa;">
+      <el-row style="background: #fafafa;margin-top: 50px;">
         <el-col :span="24">
           <span></span>管理评估计划
         </el-col>
       </el-row>
-      <el-row>
-        <el-col :span="24">
-          <ul class="ui_search_right">
-            <li>
-              <el-button class="fn-right" size="mini">新建评估计划</el-button>
-            </li>
-          </ul>
-        </el-col>
-      </el-row>
+      <!--      <el-row>-->
+      <!--        <el-col :span="24">-->
+      <!--          <ul class="ui_search_right">-->
+      <!--            <li>-->
+      <!--              <el-button class="fn-right" size="mini">新建评估计划</el-button>-->
+      <!--            </li>-->
+      <!--          </ul>-->
+      <!--        </el-col>-->
+      <!--      </el-row>-->
     </div>
     <!--    表格-->
     <div class="ui_table_box">
@@ -32,32 +32,32 @@
           width="350">
         </el-table-column>
         <el-table-column
-          prop="address"
+          prop="creatTime"
           :show-overflow-tooltip='true'
-          label="创建时间"
-          width="280">
+          label="评估年份"
+          width="200">
         </el-table-column>
         <el-table-column
           prop="date"
           label="状态"
           :show-overflow-tooltip='true'
-          width="200">
+          width="180">
         </el-table-column>
         <el-table-column
           prop="date"
           label="详细操作"
           :show-overflow-tooltip='true'
-          width="490">
+          width="550">
           <template slot-scope="scope">
-             <ul class="ui_li_list">
-               <li><a>单元结构</a></li>
-               <li><a>评级结构</a></li>
-               <li><a>管理指标</a></li>
-               <li><a>管理问题</a></li>
-               <li><a>关联问题</a></li>
-               <li><a>剩余风险</a></li>
-               <li><a>汇总路线</a></li>
-             </ul>
+            <ul class="ui_li_list">
+              <li><a>单元结构</a></li>
+              <li><a>评级结构</a></li>
+              <li><a>管理指标</a></li>
+              <li><a>管理问题</a></li>
+              <li><a>关联问题</a></li>
+              <li><a>剩余风险</a></li>
+              <li><a>汇总路线</a></li>
+            </ul>
           </template>
         </el-table-column>
         <el-table-column
@@ -71,9 +71,9 @@
           label="业务操作"
           width="350">
           <template slot-scope="scope">
-            <el-button type="primary" size="small" icon="el-icon-setting"></el-button>
-            <el-button type="primary" size="small" icon="el-icon-download"></el-button>
-            <el-button type="primary" size="small" icon="el-icon-delete"></el-button>
+            <ul class="ui_li_list">
+              <li><a>复制</a></li>
+            </ul>
           </template>
         </el-table-column>
       </el-table>
@@ -99,33 +99,15 @@
 <script>
   export default {
     name: 'ManagementEvaluationPlan',
-    data () {
+    data() {
       return {
-        currentPage3: 1,
-        options: [{
-          value: '选项1',
-          label: '黄金糕'
-        }, {
-          value: '选项2',
-          label: '双皮奶'
-        }, {
-          value: '选项3',
-          label: '蚵仔煎'
-        }, {
-          value: '选项4',
-          label: '龙须面'
-        }, {
-          value: '选项5',
-          label: '北京烤鸭'
-        }],
-        value: '',
-        input: '',
         tableData: [{
-          date: '2016-02',
+          creatTime: '2019',
+          status: '',
           name: '王小虎',
           address: '上海上海市普陀区金沙江路上海市普陀区金沙江路市普陀区金沙江路 1518 弄'
         }, {
-          date: '2016-04',
+          status: '2016-04',
           name: '王小虎',
           address: '上海上海市普陀区金沙江路上海市普陀区金沙江路市普陀区金沙江路 1517 弄'
         }, {
@@ -163,10 +145,8 @@
         }]
       }
     },
-    components: {
-
-    },
-    mounted () {
+    components: {},
+    mounted() {
       document.getElementById('bg_color').style.display = 'none';
     },
     methods: {
@@ -182,10 +162,14 @@
 
 <style lang="scss" scoped type="text/scss">
   @import "../../common/style/commonSass/ManagerCommonSass";
-  .ui_pagination_box{
+  @import "../../common/style/common.scss";
+  @import "../../common/style/resetElemtnUI.css";
+
+  .ui_pagination_box {
     margin-top: 80px;
     float: right;
-    .ui_total_num{
+
+    .ui_total_num {
       font-size: 14px;
       font-weight: 600;
       color: $navHoverBg;
@@ -193,16 +177,18 @@
     }
   }
 
-  .ui_li_list{
-    li{
+  .ui_li_list {
+    li {
       float: left;
       text-align: center;
       margin-left: 10px;
     }
-    li:hover{
+
+    li:hover {
       color: $navHoverBg;
       cursor: pointer;
-      a{
+
+      a {
         border-bottom: 1px solid $navHoverBg;
       }
     }

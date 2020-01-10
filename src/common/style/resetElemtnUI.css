@@ -196,6 +196,7 @@
   padding: 12px 0 !important;
 }
 
+
 .manager_routes_box th:nth-child(2) .cell {
   text-align: left !important;
   padding: 0 !important;
@@ -304,3 +305,124 @@
   width: 100%;
   margin-top: 29px;
 }
+
+/*--------------修改后--------------------------------------------------------------------*/
+
+
+/*-- 表格样式 --*/
+.ui_table_box .el-table__body-wrapper, .el-table__fixed {
+  font-size: 16px;
+}
+
+.ui_table_box .el-table td, .el-table th {
+  padding: 10px 0 !important;
+}
+
+/*-- 按钮 --*/
+.ui_btn {
+  cursor: pointer;
+  height: 37px;
+  line-height: 37px;
+  text-align: center;
+  border-radius: 4px;
+  background: #bf7709;
+  color: #fff;
+  display: inline-block;
+  font-size: 16px;
+  padding: 0 30px;
+  margin-top: 5px;
+  margin-left: 20px;
+}
+
+.selectTraining {
+  display: inline-block;
+  margin: 0 0 0 30px;
+  padding: 0;
+  width: 72px;
+  height: 30px;
+  line-height: 30px;
+}
+
+/*-- 弹窗样式 --*/
+
+.el-message-box {
+  border-style: none;
+  border-radius: 7px;
+}
+
+.el-message-box__message p {
+  text-align: center;
+  font-size: 16px;
+}
+
+.el-message-box__header {
+  background-color: #bf7709;
+  padding: 11px 0;
+}
+
+
+.el-message-box__title {
+  text-align: center;
+}
+
+.el-message-box__title span {
+  color: #fff;
+}
+
+.el-message-box__headerbtn .el-message-box__close {
+  color: #fff;
+}
+
+.el-message-box__content {
+  width: 60%;
+  margin-left: 20%;
+  padding: 15px;
+}
+
+.el-message-box__btns {
+  text-align: center;
+}
+
+.el-message-box__btns button:nth-child(2) {
+  margin-left: 55px;
+}
+
+.el-button--primary:focus,
+.el-button--primary {
+  color: #FFF;
+  background-color: #bf7709;
+  border-color: #bf7709;
+}
+
+.el-button--primary:hover {
+  background-color: #d98f1d;
+  border-color: #d98f1d;
+}
+
+.el-button:hover {
+  color: #d98f1d;
+  border-color: #d98f1d;
+  background-color: #fff;
+}
+
+.el-button {
+  width: 100px;
+  padding: 0 15px;
+  height: 35px;
+  line-height: 35px;
+  font-size: 16px;
+}
+
+/*-- 分页样式 --*/
+.ui_pagination_box {
+  margin-top: 25px;
+  float: right;
+}
+
+.ui_pagination_box .ui_total_num {
+  font-size: 14px;
+  font-weight: 600;
+  color: #bf7709;
+  margin-top: 6px;
+}
+

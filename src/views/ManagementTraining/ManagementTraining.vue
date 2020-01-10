@@ -1,4 +1,3 @@
-
 <template>
   <div class="ui_management_evaluation_plan">
     <!-- 管理培训 -->
@@ -35,8 +34,10 @@
           <div class="fn-left ui_btn" @click="uploadResources">上传资源</div>
           <div class="fn-left ui_btn" @click="addQuestions">创建考题</div>
           <div class="fn-left ui_btn" @click="addTraining">创建培训</div>
+          <div class="fn-left ui_btn" @click="importQuestion">导入考题</div>
+          <div class="fn-left ui_btn" @click="templateDownload">考试模板下载</div>
           <div class="fn-left ui_btn" @click="downLoad">下载</div>
-          <div class="fn-left ui_btn" @click="del">删除</div>
+          <div class="fn-left ui_btn" @click="del">批量删除</div>
         </div>
       </el-row>
     </div>
@@ -46,54 +47,62 @@
         ref="multipleTable"
         :data="tableData"
         :header-cell-style="{background:'#f5f6f8',height:'45px'}"
+        :default-sort="{prop: 'date', order: 'descending'}"
         tooltip-effect="dark"
-        style="width: 100%"
-        @selection-change="handleSelectionChange">
+        stripe
+        style="width: 100%">
+        <!--        @selection-change="handleSelectionChange"-->
         <el-table-column
           type="selection"
           width="60"
-        hight="45px">
-
+          hight="45px">
         </el-table-column>
         <el-table-column
           prop="trainingTheme"
           label="培训主题"
+          sortable
           width="340">
         </el-table-column>
         <el-table-column
           prop="trainingStatus"
           label="培训状态"
+          sortable
           width="180">
         </el-table-column>
         <el-table-column
           prop="closingDate"
           label="截止日期"
+          sortable
           show-overflow-tooltip
           width="220">
         </el-table-column>
         <el-table-column
           prop="finishTrainingPercentage"
           label="完成培训百分比"
+          sortable
           show-overflow-tooltip
           width="200">
         </el-table-column>
         <el-table-column
           prop="percentagePassingTheExam"
           label="通过考试百分比"
+          sortable
           show-overflow-tooltip
-          width="200">
+          width="220">
         </el-table-column>
         <el-table-column
           prop="detailed"
           label="详细"
+          value="1"
           show-overflow-tooltip
-          width="340">
+          width="300">
+          <span class="FinishStatus" @click="toSee('val')">查看完成情况</span>
         </el-table-column>
         <el-table-column
           prop="address"
           label="操作"
           show-overflow-tooltip
-          width="300">
+          width="320">
           <template slot-scope="scope">
             <ul class="ui_li_list">
               <li><a>查看</a></li>
@@ -109,11 +118,13 @@
       <div class="fn-left ui_total_num">
         本页10条目，共计40条目
       </div>
+
+      <!--        :current-page.sync="currentPage3" -->
+
       <el-pagination
         class="fn-left"
         @size-change="handleSizeChange"
         @current-change="handleCurrentChange"
-        :current-page.sync="currentPage3"
         :page-size="100"
         layout="prev, pager, next, jumper"
         :total="1000">
@@ -127,85 +138,7 @@
     name: "ManagementTraining",
     data() {
       return {
-        tableData: [{
-          trainingTheme: '培训主题名称xxxxxxxxxxxxxxxxxxxx',
-          trainingStatus: '进行中',
-          closingDate: '2019-12-12',
-          finishTrainingPercentage: '50%',
-          percentagePassingTheExam: '50%',
-          detailed: '查看完成情况'
-        },
-        {
-          trainingTheme: '培训主题名称xxxxxxxxxxxxxxxxxxxx',
-          trainingStatus: '进行中',
-          closingDate: '2019-12-12',
-          finishTrainingPercentage: '50%',
-          percentagePassingTheExam: '50%',
-          detailed: '查看完成情况'
-        },
-        {
-          trainingTheme: '培训主题名称xxxxxxxxxxxxxxxxxxxx',
-          trainingStatus: '进行中',
-          closingDate: '2019-12-12',
-          finishTrainingPercentage: '50%',
-          percentagePassingTheExam: '50%',
-          detailed: '查看完成情况'
-        },
-          {
-            trainingTheme: '培训主题名称xxxxxxxxxxxxxxxxxxxx',
-            trainingStatus: '进行中',
-            closingDate: '2019-12-12',
-            finishTrainingPercentage: '50%',
-            percentagePassingTheExam: '50%',
-            detailed: '查看完成情况'
-          },
-          {
-            trainingTheme: '培训主题名称xxxxxxxxxxxxxxxxxxxx',
-            trainingStatus: '进行中',
-            closingDate: '2019-12-12',
-            finishTrainingPercentage: '50%',
-            percentagePassingTheExam: '50%',
-            detailed: '查看完成情况'
-          },{
-            trainingTheme: '培训主题名称xxxxxxxxxxxxxxxxxxxx',
-            trainingStatus: '进行中',
-            closingDate: '2019-12-12',
-            finishTrainingPercentage: '50%',
-            percentagePassingTheExam: '50%',
-            detailed: '查看完成情况'
-          },
-          {
-            trainingTheme: '培训主题名称xxxxxxxxxxxxxxxxxxxx',
-            trainingStatus: '进行中',
-            closingDate: '2019-12-12',
-            finishTrainingPercentage: '50%',
-            percentagePassingTheExam: '50%',
-            detailed: '查看完成情况'
-          },
-          {
-            trainingTheme: '培训主题名称xxxxxxxxxxxxxxxxxxxx',
-            trainingStatus: '进行中',
-            closingDate: '2019-12-12',
-            finishTrainingPercentage: '50%',
-            percentagePassingTheExam: '50%',
-            detailed: '查看完成情况'
-          },
-          {
-            trainingTheme: '培训主题名称xxxxxxxxxxxxxxxxxxxx',
-            trainingStatus: '进行中',
-            closingDate: '2019-12-12',
-            finishTrainingPercentage: '50%',
-            percentagePassingTheExam: '50%',
-            detailed: '查看完成情况'
-          },
-          {
-            trainingTheme: '培训主题名称xxxxxxxxxxxxxxxxxxxx',
-            trainingStatus: '进行中',
-            closingDate: '2019-12-12',
-            finishTrainingPercentage: '50%',
-            percentagePassingTheExam: '50%',
-            detailed: '查看完成情况'
-          }],
+
         form: {
           name: '',
           region: '',
@@ -215,7 +148,68 @@
           type: [],
           resource: '',
           desc: ''
-        }
+        },
+        tableData: [{
+          trainingTheme: '培训主题名称xxxxxxxxxxxxxxxxxxxx',
+          trainingStatus: '进行中',
+          closingDate: '2019-12-12',
+          finishTrainingPercentage: '50%',
+          percentagePassingTheExam: '50%'
+        }, {
+          trainingTheme: '培训主题名称xxxxxxxxxxxxxxxxxxxx',
+          trainingStatus: '进行中',
+          closingDate: '2019-12-12',
+          finishTrainingPercentage: '50%',
+          percentagePassingTheExam: '50%'
+        }, {
+          trainingTheme: '培训主题名称xxxxxxxxxxxxxxxxxxxx',
+          trainingStatus: '进行中',
+          closingDate: '2019-12-12',
+          finishTrainingPercentage: '50%',
+          percentagePassingTheExam: '50%'
+        }, {
+          trainingTheme: '培训主题名称xxxxxxxxxxxxxxxxxxxx',
+          trainingStatus: '进行中',
+          closingDate: '2019-12-12',
+          finishTrainingPercentage: '50%',
+          percentagePassingTheExam: '50%'
+        }, {
+          trainingTheme: '培训主题名称xxxxxxxxxxxxxxxxxxxx',
+          trainingStatus: '进行中',
+          closingDate: '2019-12-12',
+          finishTrainingPercentage: '50%',
+          percentagePassingTheExam: '50%'
+        }, {
+          trainingTheme: '培训主题名称xxxxxxxxxxxxxxxxxxxx',
+          trainingStatus: '进行中',
+          closingDate: '2019-12-12',
+          finishTrainingPercentage: '50%',
+          percentagePassingTheExam: '50%'
+        }, {
+          trainingTheme: '培训主题名称xxxxxxxxxxxxxxxxxxxx',
+          trainingStatus: '进行中',
+          closingDate: '2019-12-12',
+          finishTrainingPercentage: '50%',
+          percentagePassingTheExam: '50%'
+        }, {
+          trainingTheme: '培训主题名称xxxxxxxxxxxxxxxxxxxx',
+          trainingStatus: '进行中',
+          closingDate: '2019-12-12',
+          finishTrainingPercentage: '50%',
+          percentagePassingTheExam: '50%'
+        }, {
+          trainingTheme: '培训主题名称xxxxxxxxxxxxxxxxxxxx',
+          trainingStatus: '进行中',
+          closingDate: '2019-12-12',
+          finishTrainingPercentage: '50%',
+          percentagePassingTheExam: '50%'
+        }, {
+          trainingTheme: '培训主题名称xxxxxxxxxxxxxxxxxxxx',
+          trainingStatus: '进行中',
+          closingDate: '2019-12-12',
+          finishTrainingPercentage: '50%',
+          percentagePassingTheExam: '50%'
+        }]
       }
     },
     mounted() {
@@ -262,25 +256,71 @@
        *  下载
        * @param
        * @returns {Promise}
-       * @Author XXX
+       * @Author 李思晗
        * */
       downLoad() {
+        this.$confirm('是否下载选定的培训主题？', '下载', {
+          cancelButtonText: '取消',
+          confirmButtonText: '确定',
+          showClose: false,
+        }).then(() => {
+          this.$message({
+            type: 'success',
+            message: '下载成功!'
+          });
+        }).catch(() => {
+          this.$message({
+            type: 'info',
+            message: '已取消下载'
+          });
+        });
+      },
+      /**
+       *  导入考题
+       * @param
+       * @returns {Promise}
+       * @Author 李思晗
+       * */
+      importQuestion() {
 
       },
       /**
-       *  删除
+       *  考试模板下载
+       * @param
+       * @returns {Promise}
+       * @Author 李思晗
+       * */
+      templateDownload() {
+
+      },
+      /**
+       *  批量删除
        * @param
        * @returns {Promise}
        * @Author XXX
        * */
       del() {
-
+        this.$confirm('是否删除选定的培训主题？', '删除', {
+          cancelButtonText: '取消',
+          confirmButtonText: '确定',
+          showClose: false,
+        }).then(() => {
+          this.$message({
+            type: 'success',
+            message: '删除成功!'
+          });
+        }).catch(() => {
+          this.$message({
+            type: 'info',
+            message: '已取消删除'
+          });
+        });
       },
       /**
        *  查看完成情况
        * @param
        * @returns {Promise}
-       * @Author XXX
+       * @Author 李思晗
        * */
       toSee(val) {
         if (val == 'val') {
@@ -293,7 +333,7 @@
        * @returns {Promise}
        * @Author 李思晗
        * */
-      selectTraining(){
+      selectTraining() {
 
       },
       /**
@@ -315,48 +355,14 @@
 
 <style lang="scss" scoped type="text/scss">
   @import "../../common/style/commonSass/ManagerCommonSass";
+  @import "../../common/style/common.scss";
+  @import "../../common/style/resetElemtnUI.css";
 
-  .ui_pagination_box {
-    margin-top: 80px;
-    float: right;
-
-    .ui_total_num {
-      font-size: 14px;
-      font-weight: 600;
-      color: $navHoverBg;
-      margin-top: 6px;
-    }
-  }
-
-  .ui_table_box {
-
-    .el-table td {
-      padding: 11px 0 !important;
-    }
-
-  }
-
-
-
-  .ui_btn {
-    cursor: pointer;
-    height: 37px;
-    line-height: 37px;
-    text-align: center;
-    border-radius: 4px;
-    background: #bf7709;
-    color: #fff;
-    display: inline-block;
-    font-size: 16px;
-    padding: 0 30px;
-    margin-top: 5px;
-    margin-left: 20px;
-  }
 
   .el-col-11,
   .el-select {
     margin-right: 10px;
-    width: 150px;
+    width: 160px;
   }
 
   .el-form {
@@ -369,37 +375,34 @@
   }
 
   .fn-right {
-    margin-right: 25px;
+    margin-right: 40px;
   }
 
   .el-col-24 {
     width: 15%;
   }
 
-  .selectTraining {
-    display: inline-block;
-    margin: 0 0 0 30px;
-    padding: 0;
-    width: 72px;
-    height: 30px;
-    line-height: 30px;
+  .ui_li_list {
+    li {
+      display: inline-block;
+      text-align: center;
+      margin: 0 20px;
+    }
+
+    li:hover {
+      color: $navHoverBg;
+      cursor: pointer;
+
+      a {
+        border-bottom: 1px solid $navHoverBg;
+      }
+    }
   }
 
-    .ui_li_list {
-      li {
-        display: inline-block;
-        text-align: center;
-        margin-left: 10px;
-      }
-
-      li:hover {
-        color: $navHoverBg;
-        cursor: pointer;
-
-        a {
-          border-bottom: 1px solid $navHoverBg;
-        }
-      }
+  .FinishStatus:hover {
+    color: $navHoverBg;
+    cursor: pointer;
+    border-bottom: 1px solid $navHoverBg;
   }
 
 </style>

@@ -136,12 +136,12 @@
        * @Author 李思晗
        * */
       ChooseResources(value) {
-        console.log(value)
+        console.log(value);
 
         if(value == 'Video'){
-
+          console.log('视频');
         }else if(value == 'NonVideo'){
-
+          console.log('非视频');
         }
 
       },

@@ -3,25 +3,28 @@
     <div class="ui_search_result">
       <el-row style="background: #fafafa;margin-top: 50px;">
         <el-col :span="24">
-          <span></span>用户培训汇总
+          <span></span>培训汇总
         </el-col>
       </el-row>
     </div>
     <!-- 表格 -->
-    <div class="ui_table_box">
+    <div class="ui_table_box" style="margin-top: 45px;">
       <el-table
         :data="tableData"
         :header-cell-style="{background:'#f5f6f8',height:'45px'}"
+        :default-sort = "{prop: 'date', order: 'descending'}"
         stripe
         style="width: 100%">
         <el-table-column
           fixed
+          sortable
           prop="theme"
           :show-overflow-tooltip='true'
           label="培训主题"
           width="430">
         </el-table-column>
         <el-table-column
+          sortable
           prop="stopTime"
           :show-overflow-tooltip='true'
           label="截至时间"
@@ -183,6 +186,12 @@
       TrainingName() {
         this.$goRoute('/TrainingName')
       },
+      /**
+       *  分页
+       * @param
+       * @returns {Promise}
+       * @Author XXX
+       * */
       handleSizeChange(val) {
         console.log(`每页 ${val} 条`);
       },
@@ -198,30 +207,14 @@
 
 <style lang="scss" scoped type="text/scss">
   @import "../../common/style/commonSass/ManagerCommonSass";
-
-  .ui_pagination_box {
-    margin-top: 80px;
-    float: right;
-
-    .ui_total_num {
-      font-size: 14px;
-      font-weight: 600;
-      color: $navHoverBg;
-      margin-top: 6px;
-    }
-  }
-
-  .ui_table_box{
-    .el-table td{
-      height: 45px;
-    }
-  }
+  @import "../../common/style/common.scss";
+  @import "../../common/style/resetElemtnUI.css";
 
   .ui_li_list {
     li {
       display: inline-block;
       text-align: center;
-      margin-left: 10px;
+      margin: 0 20px;
     }
 
     li:hover {
@@ -233,4 +226,5 @@
       }
     }
   }
+
 </style>
