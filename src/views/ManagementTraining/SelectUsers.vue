@@ -55,6 +55,7 @@
       }
     },
     mounted() {
+
       this.initPage()
     },
     methods: {
