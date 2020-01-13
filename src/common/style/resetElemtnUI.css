@@ -318,6 +318,7 @@
   padding: 10px 0 !important;
 }
 
+
 /*-- 按钮 --*/
 .ui_btn {
   cursor: pointer;
@@ -424,5 +425,29 @@
   font-weight: 600;
   color: #bf7709;
   margin-top: 6px;
+}
+
+/*-- 样式覆盖 --*/
+.el-checkbox__inner:hover,
+.el-radio__input.is-checked .el-radio__inner,
+.el-radio__inner:hover,
+.el-select .el-input__inner:focus,
+.el-select .el-input.is-focus .el-input__inner,
+.el-textarea__inner:focus,
+.el-input__inner:focus {
+  border-color: #d98f1d;
+}
+
+.el-picker-panel__icon-btn:hover,
+.el-date-picker__header-label:hover,
+.el-date-table td.today span,
+.el-radio__input.is-checked + .el-radio__label,
+.el-select-dropdown__item.selected {
+  color: #d98f1d;
+}
+
+.el-date-table td.current:not(.disabled) span,
+.el-radio__input.is-checked .el-radio__inner {
+  background: #d98f1d;
 }
 

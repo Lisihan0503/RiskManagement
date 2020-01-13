@@ -77,7 +77,7 @@
         <div class="el-textarea">
           <div class="fn-right">
             <div class="fn-left ui_btn" >确认</div>
-            <div class="fn-left ui_btn" >返回</div>
+            <div class="fn-left ui_btn" @click="Back">返回</div>
           </div>
         </div>
       </el-form-item>
@@ -143,6 +143,15 @@
        * */
       toSelectQuestions(){
         this.$goRoute('/SelectQuestions')
+      },
+      /**
+       *  返回至上一页
+       * @param
+       * @returns {Promise}
+       * @Author 李思晗
+       * */
+      Back(){
+        this.$goRoute('/ManagementTraining', {id: 123})
       }
     }
   }
@@ -215,6 +224,12 @@
 
       .el-textarea {
         width: 960px;
+
+        .el-textarea__inner {
+          min-height: 200px !important;
+          resize:none !important;
+        }
+
       }
 
     }
@@ -229,6 +244,17 @@
 
     span{
       line-height: 35px;
+    }
+
+    .AddOption:hover,
+    .deleteOption:hover {
+      cursor: pointer;
+      color: #bf7709;
+
+      i {
+        color: #bf7709;
+      }
+
     }
 
   }

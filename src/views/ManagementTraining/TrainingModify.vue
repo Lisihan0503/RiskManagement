@@ -16,43 +16,43 @@
         <el-input v-model="ruleForm.name"></el-input>
       </el-form-item>
 
-      <el-form-item label="强制培训" prop="ComTraining">
+      <el-form-item label="强制培训" prop="TraTheme">
         <el-radio-group v-model="ruleForm.ComTraining">
           <el-radio label="是"></el-radio>
           <el-radio label="否"></el-radio>
         </el-radio-group>
       </el-form-item>
 
-      <el-form-item label="必须通过考试" prop="MutPasExam">
+      <el-form-item label="必须通过考试" prop="TraTheme">
         <el-radio-group v-model="ruleForm.MutPasExam">
           <el-radio label="是"></el-radio>
           <el-radio label="否"></el-radio>
         </el-radio-group>
       </el-form-item>
 
-      <el-form-item label="通过考试分数线" prop="PassScoreLine">
+      <el-form-item label="通过考试分数线" prop="TraTheme">
         <el-input v-model="ruleForm.PassScoreLine"></el-input>
       </el-form-item>
 
-      <el-form-item label="培训截止日期" required prop="date1">
+      <el-form-item label="培训截止日期" required prop="TraTheme">
         <el-date-picker type="date" placeholder="请选择" v-model="ruleForm.date1"></el-date-picker>
       </el-form-item>
 
-      <el-form-item label="受邀用户" prop="NvitedUsers">
+      <el-form-item label="受邀用户" prop="TraTheme">
         <div class="chooseNvitedUsers" @click="toSelectUsers">选择</div>
       </el-form-item>
 
-      <el-form-item label="活动形式" prop="TrainingDescription">
+      <el-form-item label="活动形式" prop="TraTheme">
         <el-input type="textarea" v-model="ruleForm.TrainingDescription" placeholder="请输入培训描述"></el-input>
       </el-form-item>
 
-      <el-form-item label="选择章节" prop="SelectionSection">
+      <el-form-item label="选择章节" prop="TraTheme">
         <el-select v-model="ruleForm.region" placeholder="请选择">
           <el-option label="章节一" value="shanghai"></el-option>
         </el-select>
       </el-form-item>
 
-      <el-form-item label="选择考题" prop="SelectQuestion">
+      <el-form-item label="选择考题" prop="choose">
         <div class="chooseNvitedUsers" @click="toSelectQuestion">选择</div>
       </el-form-item>
 
@@ -60,11 +60,10 @@
         <div class="el-input">
           <div class="fn-right">
             <div class="fn-left ui_btn" >确认</div>
-            <div class="fn-left ui_btn" >返回</div>
+            <div class="fn-left ui_btn" @click="Back">返回</div>
           </div>
         </div>
       </el-form-item>
-
     </el-form>
   </div>
 
@@ -94,32 +93,16 @@
         },
         rules: {
           TraTheme: [
-            {required: true, message: '请输入活动名称', trigger: 'blur'}
-          ],
-          region: [
-            {required: true, message: '请选择活动区域', trigger: 'change'}
-          ],
-          CompulsoryTraining: [
-            {required: true, message: '请选择活动区域', trigger: 'change'}
-          ],
-          ComTraining: [
-            {required: true, message: '请选择一个选项', trigger: 'change'}
-          ],
-          MutPasExam: [
-            {required: true, message: '请选择一个选项', trigger: 'change'}
-          ],
-          PassScoreLine: [
-            {required: true, message: '请选择一个选项', trigger: 'change'}
-          ],
-          NvitedUsers: [
-            {required: true, message: '请选择用户', trigger: 'change'}
-          ],
-          TrainingDescription: [
+            {required: true, message: '请输入活动名称', trigger: 'blur'},
+            {required: true, message: '请选择活动区域', trigger: 'change'},
+            {required: true, message: '请选择活动区域', trigger: 'change'},
+            {required: true, message: '请选择一个选项', trigger: 'change'},
+            {required: true, message: '请选择一个选项', trigger: 'change'},
+            {required: true, message: '请选择一个选项', trigger: 'change'},
+            {required: true, message: '请选择用户', trigger: 'change'},
+            {required: true, message: '请输入培训描述', trigger: 'change'},
             {required: true, message: '请输入培训描述', trigger: 'change'}
           ],
-          SelectionSection: [
-            {required: true, message: '请输入培训描述', trigger: 'change'}
-          ]
         }
       }
     },
@@ -156,7 +139,16 @@
        * @Author XXX
        * */
       toSelectQuestion() {
-        this.$goRoute('/SelectQuestion', {Modify: 0})
+        this.$goRoute('/SelectQuestions', {Modify: 0})
+      },
+      /**
+       *  返回至上一页
+       * @param
+       * @returns {Promise}
+       * @Author 李思晗
+       * */
+      Back(){
+        this.$goRoute('/ManagementTraining', {Modify: 123})
       }
     }
   }

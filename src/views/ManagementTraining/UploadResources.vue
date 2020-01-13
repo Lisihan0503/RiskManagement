@@ -46,7 +46,7 @@
         <div class="el-input">
           <div class="fn-right">
             <div class="fn-left ui_btn" >确认</div>
-            <div class="fn-left ui_btn" >返回</div>
+            <div class="fn-left ui_btn" @click="Back">返回</div>
           </div>
         </div>
       </el-form-item>
@@ -171,6 +171,15 @@
        * */
       ChooesAudio(){
         console.log('音频文件');
+      },
+      /**
+       *  返回至上一页
+       * @param
+       * @returns {Promise}
+       * @Author 李思晗
+       * */
+      Back(){
+        this.$goRoute('/ManagementTraining', {id: 123})
       }
     }
   };

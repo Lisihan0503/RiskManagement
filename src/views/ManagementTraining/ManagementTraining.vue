@@ -96,7 +96,7 @@
           value="1"
           show-overflow-tooltip
           width="300">
-          <span class="FinishStatus" @click="toSee('val')">查看完成情况</span>
+          <span class="FinishStatus" @click="toSee('1')">查看完成情况</span>
         </el-table-column>
         <el-table-column
           prop="address"
@@ -105,9 +105,9 @@
           width="320">
           <template slot-scope="scope">
             <ul class="ui_li_list">
-              <li><a>查看</a></li>
-              <li><a>修改</a></li>
-              <li><a>删除</a></li>
+              <li @click="CheckThis"><a>查看</a></li>
+              <li @click="EditThis"><a>修改</a></li>
+              <li @click="DeleteThis"><a>删除</a></li>
             </ul>
           </template>
         </el-table-column>
@@ -209,6 +209,23 @@
           closingDate: '2019-12-12',
           finishTrainingPercentage: '50%',
           percentagePassingTheExam: '50%'
+        }],
+        PopupData: [{
+          date: '2016-05-02',
+          name: '王小虎',
+          address: '上海市普陀区金沙江路 1518 弄'
+        }, {
+          date: '2016-05-04',
+          name: '王小虎',
+          address: '上海市普陀区金沙江路 1517 弄'
+        }, {
+          date: '2016-05-01',
+          name: '王小虎',
+          address: '上海市普陀区金沙江路 1519 弄'
+        }, {
+          date: '2016-05-03',
+          name: '王小虎',
+          address: '上海市普陀区金沙江路 1516 弄'
         }]
       }
     },
@@ -291,7 +308,21 @@
        * @Author 李思晗
        * */
       templateDownload() {
-
+        this.$confirm('是否确认下载考试模板？', '考试模板下载', {
+          cancelButtonText: '取消',
+          confirmButtonText: '确定',
+          showClose: false,
+        }).then(() => {
+          this.$message({
+            type: 'success',
+            message: '下载成功!'
+          });
+        }).catch(() => {
+          this.$message({
+            type: 'info',
+            message: '已取消下载'
+          });
+        });
       },
       /**
        *  批量删除
@@ -323,9 +354,54 @@
        * @Author 李思晗
        * */
       toSee(val) {
-        if (val == 'val') {
+        if (val == '1') {
           this.$goRoute('/SeeSituation', {id: 123})
         }
+      },
+      /**
+       * 查看培训
+       * @param val
+       * @returns {Promise}
+       * @Author 李思晗
+       */
+      CheckThis(val) {
+        // if (val == '1') {
+        this.$goRoute('/TrainingModify', {id: 123});
+        // }
+      },
+      /**
+       * 编辑培训
+       * @param val
+       * @returns {Promise}
+       * @Author 李思晗
+       */
+      EditThis() {
+        // if (val == '1') {
+        this.$goRoute('/TrainingModify', {id: 123});
+        // }
+      },
+      /**
+       * 删除当前条
+       * @param val
+       * @returns {Promise}
+       * @Author 李思晗
+       */
+      DeleteThis() {
+        this.$confirm('是否删除选定的培训主题？', '删除', {
+          cancelButtonText: '取消',
+          confirmButtonText: '确定',
+          showClose: false,
+        }).then(() => {
+          this.$message({
+            type: 'success',
+            message: '删除成功!'
+          });
+        }).catch(() => {
+          this.$message({
+            type: 'info',
+            message: '已取消删除'
+          });
+        });
       },
       /**
        *  条件查询
@@ -335,6 +411,29 @@
        * */
       selectTraining() {
 
+      },
+      /**
+       *  导入考题弹窗
+       * @param
+       * @returns {Promise}
+       * @Author 李思晗
+       * */
+      importQuestion() { //html代码没有渲染到弹窗内
+        this.$alert(
+          '<template>' +
+          '<el-table :data="PopupData" style="width: 100%">' +
+          '<el-table-column prop="date" label="日期" width="180">' +
+          '</el-table-column>' +
+          '<el-table-column prop="name" label="姓名"  width="180">' +
+          '</el-table-column>' +
+          '<el-table-column prop="address" label="地址">' +
+          '</el-table-column>' +
+          '</el-table>' +
+          '</template>',
+          '导入考题', {
+            dangerouslyUseHTMLString: true,
+            showClose: false,
+          });
       },
       /**
        * 分页
@@ -347,7 +446,8 @@
       },
       handleCurrentChange(val) {
         console.log(`当前页: ${val}`);
-      }
+      },
+
     }
   }
 </script>
